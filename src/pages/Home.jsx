@@ -118,6 +118,29 @@ const Tasks = (props) => {
   const { tasks, selectListId, isDoneDisplay } = props;
   if (tasks === null) return <></>;
 
+  const getFormatedTime = (limitStr) => {
+    const date = new Date(limitStr);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const hours = date.getHours();
+    const mins = String(date.getMinutes()).padStart(2, '0');
+
+    return `${year}/${month}/${day} ${hours}:${mins}`;
+  }
+
+  const getRemainingTime = (limitStr) => {
+    const limit = new Date(limitStr)
+    const dateNow = new Date()
+    const remainingTime = limit - dateNow
+
+    const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    const mins = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))
+
+    return `${days} days, ${hours} hours, ${mins} minutes`;
+  }
+
   if (isDoneDisplay == 'done') {
     return (
       <ul>
@@ -129,8 +152,6 @@ const Tasks = (props) => {
             <li key={key} className="task-item">
               <Link to={`/lists/${selectListId}/tasks/${task.id}`} className="task-item-link">
                 {task.title}
-                <br />
-                {Date(task.limit).getFullYear()+'/'+Date(task.limit).getMonth()+'/'+Date(task.limit).getDate()+'/'+Date(task.limit).getDay()+'/'+Date(task.limit).getHours()+'/'+Date(task.limit).getMinutes()}
                 <br />
                 {task.done ? '完了' : '未完了'}
               </Link>
@@ -152,6 +173,10 @@ const Tasks = (props) => {
               {task.title}
               <br />
               {task.done ? '完了' : '未完了'}
+              <br />
+              {task.limit ? 'You should complete this task by '+getFormatedTime(task.limit) : 'this task has no time limit'}
+              <br />
+              {task.limit ? getRemainingTime(task.limit)+' left' : ''}
             </Link>
           </li>
         ))}
