@@ -130,6 +130,8 @@ const Tasks = (props) => {
               <Link to={`/lists/${selectListId}/tasks/${task.id}`} className="task-item-link">
                 {task.title}
                 <br />
+                {Date(task.limit).getFullYear()+'/'+Date(task.limit).getMonth()+'/'+Date(task.limit).getDate()+'/'+Date(task.limit).getDay()+'/'+Date(task.limit).getHours()+'/'+Date(task.limit).getMinutes()}
+                <br />
                 {task.done ? '完了' : '未完了'}
               </Link>
             </li>
