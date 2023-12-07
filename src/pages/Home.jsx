@@ -63,6 +63,11 @@ export const Home = () => {
         setErrorMessage(`タスクの取得に失敗しました。${err}`);
       });
   };
+  const handleKeyDown =(e, keyDownId) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      handleSelectList(keyDownId);
+    }
+  };
   return (
     <div>
       <Header />
@@ -80,14 +85,18 @@ export const Home = () => {
               </p>
             </div>
           </div>
-          <ul className="list-tab">
+          <ul className="list-tab" role="tablist">
             {lists.map((list, key) => {
               const isActive = list.id === selectListId;
               return (
                 <li
                   key={key}
+                  role="tab"
+                  tabIndex={0}
                   className={`list-tab-item ${isActive ? 'active' : ''}`}
+                  aria-selected={isActive}
                   onClick={() => handleSelectList(list.id)}
+                  onKeyDown={(e) => handleKeyDown(e, list.id)}
                 >
                   {list.title}
                 </li>
