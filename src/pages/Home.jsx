@@ -63,7 +63,7 @@ export const Home = () => {
         setErrorMessage(`タスクの取得に失敗しました。${err}`);
       });
   };
-  const handleKeyDown =(e, keyDownId) => {
+  const handleKeyDown = (e, keyDownId) => {
     if (e.key === ' ' || e.key === 'Enter') {
       handleSelectList(keyDownId);
     }

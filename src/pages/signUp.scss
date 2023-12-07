@@ -1,13 +1,18 @@
+@use "../styles/_variables.scss" as vars;
+@use "../styles/_mixins.scss" as mixs;
+
 .signup {
   width: 500px;
   margin: 0 auto;
 }
 .signup-form {
   margin: 25px 0;
-  color: #555555;
+  color: vars.$gray;
 }
 
-.email-input, .name-input, .password-input {
+.email-input,
+.name-input,
+.password-input {
   width: 100%;
   font-size: large;
   height: 30px;
@@ -15,13 +20,13 @@
 }
 
 .signup-button {
-  background-color: #242F9B;
-  color: #ffffff;
+  background-color: vars.$blue-main;
+  color: vars.$white;
   width: 100px;
   height: 40px;
   border-radius: 5px;
 }
 
 .error-message {
-  color: #ff3333;
+  color: vars.$red-strong;
 }

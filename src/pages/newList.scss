@@ -1,10 +1,13 @@
+@use "../styles/_variables.scss" as vars;
+@use "../styles/_mixins.scss" as mixs;
+
 .new-list {
   width: 1000px;
   margin: 0 auto;
 }
 
 .new-list-form {
-  color: #555555;
+  color: vars.$gray;
 }
 
 .new-list-title {
@@ -13,8 +16,8 @@
 }
 
 .new-list-button {
-  background-color: #242F9B;
-  color: #ffffff;
+  background-color: vars.$blue-main;
+  color: vars.$white;
   width: 80px;
   height: 40px;
   border-radius: 5px;

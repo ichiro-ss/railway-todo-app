@@ -1,13 +1,18 @@
+@use "../styles/_variables.scss" as vars;
+@use "../styles/_mixins.scss" as mixs;
+
 .new-task {
   width: 1000px;
   margin: 0 auto;
 }
 
 .new-task-form {
-  color: #555555;
+  color: vars.$blue-main;
 }
 
-.new-task-select-list, .new-task-title, .new-task-detail {
+.new-task-select-list,
+.new-task-title,
+.new-task-detail {
   width: 300px;
   margin-bottom: 25px;
 }
@@ -17,13 +22,13 @@
 }
 
 .new-task-button {
-  background-color: #242F9B;
-  color: #ffffff;
+  background-color: vars.$blue-main;
+  color: vars.$white;
   width: 80px;
   height: 40px;
   border-radius: 5px;
 }
 
 .error-message {
-  color: #ff3333;
+  color: vars.$red-strong;
 }
