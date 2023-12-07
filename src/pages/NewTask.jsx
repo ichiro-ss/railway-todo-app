@@ -24,10 +24,10 @@ export const NewTask = () => {
       title: title,
       detail: detail,
       done: false,
-      limit: limit ? `${limit}:00Z` : null,
+      limit: limit ? `${limit}:00+09:00` : null,
     };
 
-    // console.log("🚀 ~ file: NewTask.jsx:33 ~ onCreateTask ~ data:", data)
+    console.log('🚀 ~ file: NewTask.jsx:33 ~ onCreateTask ~ data:', data);
     axios
       .post(`${url}/lists/${selectListId}/tasks`, data, {
         headers: {
@@ -85,7 +85,7 @@ export const NewTask = () => {
           <br />
           <label>期限</label>
           <br />
-          <input type="datetime-local" onChange={handleLimitChange}/>
+          <input type="datetime-local" onChange={handleLimitChange} />
           <br />
           <button type="button" className="new-task-button" onClick={onCreateTask}>
             作成

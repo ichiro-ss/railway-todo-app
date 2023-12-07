@@ -121,25 +121,24 @@ const Tasks = (props) => {
   const getFormatedTime = (limitStr) => {
     const date = new Date(limitStr);
     const year = date.getFullYear();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const day = date.getDate();
     const hours = date.getHours();
     const mins = String(date.getMinutes()).padStart(2, '0');
 
     return `${year}/${month}/${day} ${hours}:${mins}`;
-  }
+  };
 
   const getRemainingTime = (limitStr) => {
-    const limit = new Date(limitStr)
-    const dateNow = new Date()
-    const remainingTime = limit - dateNow
-
+    const limit = new Date(limitStr);
+    const dateNow = new Date();
+    const remainingTime = limit - dateNow;
     const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    const mins = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))
+    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
 
     return `${days} days, ${hours} hours, ${mins} minutes`;
-  }
+  };
 
   if (isDoneDisplay == 'done') {
     return (
@@ -174,9 +173,11 @@ const Tasks = (props) => {
               <br />
               {task.done ? '完了' : '未完了'}
               <br />
-              {task.limit ? 'You should complete this task by '+getFormatedTime(task.limit) : 'this task has no time limit'}
+              {task.limit
+                ? 'You should complete this task by ' + getFormatedTime(task.limit)
+                : 'this task has no time limit'}
               <br />
-              {task.limit ? getRemainingTime(task.limit)+' left' : ''}
+              {task.limit ? getRemainingTime(task.limit) + ' left' : ''}
             </Link>
           </li>
         ))}
