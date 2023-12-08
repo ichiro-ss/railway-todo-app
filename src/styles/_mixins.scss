@@ -1,0 +1,41 @@
+@use "./_variables.scss" as vars;
+
+@mixin btn-blue {
+  background-color: vars.$blue-main;
+  color: vars.$white;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+@mixin btn-red {
+  color: vars.$red-strong;
+  border: solid 1px vars.$red-strong;
+  width: 80px;
+  height: 40px;
+  margin: 25px 5px;
+  border-radius: 5px;
+}
+
+@mixin space {
+  width: 300px;
+  margin-bottom: 25px;
+}
+
+@mixin pc {
+  @media screen and (max-width: (variables.$pc)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (max-width: (variables.$tablet)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: (variables.$phone)) {
+    @content;
+  }
+}

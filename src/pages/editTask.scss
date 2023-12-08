@@ -12,25 +12,15 @@
 
 .edit-task-title,
 .edit-task-detail {
-  width: 300px;
-  margin-bottom: 25px;
+  @include mixs.space;
 }
 
 .delete-task-button {
-  color: vars.$red-strong;
-  border: solid 1px vars.$red-strong;
-  width: 80px;
-  height: 40px;
-  margin: 25px 5px;
-  border-radius: 5px;
+  @include mixs.btn-red;
 }
 
 .edit-task-button {
-  background-color: vars.$blue-main;
-  color: vars.$white;
-  width: 80px;
-  height: 40px;
-  border-radius: 5px;
+  @include mixs.btn-blue
 }
 
 .error-message {

@@ -24,11 +24,7 @@
 }
 
 .signin-button {
-  background-color: vars.$blue-main;
-  color: vars.$white;
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
+  @include mixs.btn-blue;
 }
 
 .error-message {

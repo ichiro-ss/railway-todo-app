@@ -13,8 +13,7 @@
 .new-task-select-list,
 .new-task-title,
 .new-task-detail {
-  width: 300px;
-  margin-bottom: 25px;
+  @include mixs.space;
 }
 
 .new-task-detail {
@@ -22,11 +21,7 @@
 }
 
 .new-task-button {
-  background-color: vars.$blue-main;
-  color: vars.$white;
-  width: 80px;
-  height: 40px;
-  border-radius: 5px;
+  @include mixs.btn-blue;
 }
 
 .error-message {
