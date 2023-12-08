@@ -24,6 +24,9 @@
   list-style: none;
   display: flex;
   overflow-x: auto;
+  @include mixs.tablet {
+    display: block;
+  }
 }
 
 .list-tab-item {
@@ -35,6 +38,9 @@
   border: solid 1px vars.$blue-main;
   justify-content: center;
   align-items: center;
+  @include mixs.tablet {
+    margin: 10px 25px
+  }
 }
 
 .active {
