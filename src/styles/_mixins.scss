@@ -28,13 +28,13 @@
   }
 }
 
-@mixin tab {
+@mixin tablet {
   @media screen and (max-width: (vars.$tablet)) {
     @content;
   }
 }
 
-@mixin sp {
+@mixin phone {
   @media screen and (max-width: (vars.$phone)) {
     @content;
   }

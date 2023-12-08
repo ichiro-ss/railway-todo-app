@@ -74,14 +74,18 @@ export const Home = () => {
       <main className="taskList">
         <p className="error-message">{errorMessage}</p>
         <div>
-          <div className="list-header">
-            <h2>リスト一覧</h2>
+          <div>
+            <div className="list-header">
+              <h2>リスト一覧</h2>
+            </div>
             <div className="list-menu">
               <p>
                 <Link to="/list/new">リスト新規作成</Link>
               </p>
               <p>
-                <Link to={`/lists/${selectListId}/edit`}>選択中のリストを編集</Link>
+                <Link to={`/lists/${selectListId}/edit`}>
+                    選択中のリストを編集
+                </Link>
               </p>
             </div>
           </div>
@@ -106,13 +110,17 @@ export const Home = () => {
           <div className="tasks">
             <div className="tasks-header">
               <h2>タスク一覧</h2>
-              <Link to="/task/new">タスク新規作成</Link>
             </div>
             <div className="display-select-wrapper">
-              <select onChange={handleIsDoneDisplayChange} className="display-select">
-                <option value="todo">未完了</option>
-                <option value="done">完了</option>
-              </select>
+              <p>
+                <Link to="/task/new">タスク新規作成</Link>
+              </p>
+              <p>
+                <select onChange={handleIsDoneDisplayChange} className="display-select">
+                  <option value="todo">未完了</option>
+                  <option value="done">完了</option>
+                </select>
+              </p>
             </div>
             <Tasks tasks={tasks} selectListId={selectListId} isDoneDisplay={isDoneDisplay} />
           </div>
@@ -146,7 +154,7 @@ const Tasks = (props) => {
     const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
 
-    return `${days} days, ${hours} hours, ${mins} minutes`;
+    return `${remainingTime>0 ? days : days+1} days, ${remainingTime>0 ? hours : hours+1} hours, ${remainingTime>0 ? mins : mins+1} minutes`;
   };
 
   if (isDoneDisplay == 'done') {
