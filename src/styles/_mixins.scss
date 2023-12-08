@@ -23,19 +23,19 @@
 }
 
 @mixin pc {
-  @media screen and (max-width: (variables.$pc)) {
+  @media screen and (max-width: (vars.$pc)) {
     @content;
   }
 }
 
 @mixin tab {
-  @media screen and (max-width: (variables.$tablet)) {
+  @media screen and (max-width: (vars.$tablet)) {
     @content;
   }
 }
 
 @mixin sp {
-  @media screen and (max-width: (variables.$phone)) {
+  @media screen and (max-width: (vars.$phone)) {
     @content;
   }
 }
