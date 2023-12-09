@@ -83,9 +83,7 @@ export const Home = () => {
                 <Link to="/list/new">リスト新規作成</Link>
               </p>
               <p>
-                <Link to={`/lists/${selectListId}/edit`}>
-                    選択中のリストを編集
-                </Link>
+                <Link to={`/lists/${selectListId}/edit`}>選択中のリストを編集</Link>
               </p>
             </div>
           </div>
@@ -154,7 +152,9 @@ const Tasks = (props) => {
     const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
 
-    return `${remainingTime>0 ? days : days+1} days, ${remainingTime>0 ? hours : hours+1} hours, ${remainingTime>0 ? mins : mins+1} minutes`;
+    return `${remainingTime > 0 ? days : days + 1} days, ${remainingTime > 0 ? hours : hours + 1} hours, ${
+      remainingTime > 0 ? mins : mins + 1
+    } minutes`;
   };
 
   if (isDoneDisplay == 'done') {

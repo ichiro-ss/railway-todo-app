@@ -1,5 +1,5 @@
-@use "../styles/_variables.scss" as vars;
-@use "../styles/_mixins.scss" as mixs;
+@use '../styles/_variables.scss' as vars;
+@use '../styles/_mixins.scss' as mixs;
 
 .taskList {
   margin: 50px auto;
@@ -39,7 +39,7 @@
   justify-content: center;
   align-items: center;
   @include mixs.tablet {
-    margin: 10px 25px
+    margin: 10px 25px;
   }
 }
 
